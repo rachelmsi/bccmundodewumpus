@@ -1,14 +1,18 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package bccmundodewumpus.br.cesupa.CC6TA.Mundo.Agente;
+
+import bccmundodewumpus.br.cesupa.CC6TA.Mundo.Mapa.Mapa;
+import bccmundodewumpus.br.cesupa.CC6TA.Mundo.Mapa.PosicaoDoMapa;
 
 /**
  *
- * @author pedro
+ * @author Pedro
  */
 public class Agente {
+    PosicaoDoMapa agente;
+    Mapa mapa;
 
+    public Agente(Mapa mapa) {
+        this.mapa = mapa;
+        agente = mapa.getMapa()[0][0];
+    }
 }
