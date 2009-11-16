@@ -1,4 +1,4 @@
-package br.cesupa.CC6TA.Mundo.ObjetosDeTerreno;
+package bccmundodewumpus.br.cesupa.CC6TA.Mundo.ObjetosDeTerreno;
 
 /**
  *
