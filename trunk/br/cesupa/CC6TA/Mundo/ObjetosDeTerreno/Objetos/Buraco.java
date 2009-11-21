@@ -4,7 +4,7 @@ import br.cesupa.CC6TA.Mundo.ObjetosDeTerreno.Objetos.*;
 import br.cesupa.CC6TA.Mundo.ObjetosDeTerreno.*;
 
 /**
- *
+ *erg
  * @author pedro
  */
 public class Buraco extends ObjetoDoTerreno {
