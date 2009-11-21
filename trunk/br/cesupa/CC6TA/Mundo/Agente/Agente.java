@@ -4,8 +4,7 @@ import br.cesupa.CC6TA.Mundo.Mapa.Mapa;
 import br.cesupa.CC6TA.Mundo.Mapa.PosicaoDoMapa;
 
 /**
- * Luti....
- * @author 
+ * @author Pedro
  */
 public class Agente {
     PosicaoDoMapa agente;
