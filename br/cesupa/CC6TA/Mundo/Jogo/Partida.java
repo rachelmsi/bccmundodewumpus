@@ -1,9 +1,9 @@
-package bccmundodewumpus.br.cesupa.CC6TA.Mundo.Jogo;
+package br.cesupa.CC6TA.Mundo.Jogo;
 
-import bccmundodewumpus.br.cesupa.CC6TA.Mundo.Mapa.Mapa;
-import bccmundodewumpus.br.cesupa.CC6TA.Mundo.ObjetosDeTerreno.Buraco;
-import bccmundodewumpus.br.cesupa.CC6TA.Mundo.ObjetosDeTerreno.Ouro;
-import bccmundodewumpus.br.cesupa.CC6TA.Mundo.ObjetosDeTerreno.Wumpus;
+import br.cesupa.CC6TA.Mundo.Mapa.Mapa;
+import br.cesupa.CC6TA.Mundo.ObjetosDeTerreno.Buraco;
+import br.cesupa.CC6TA.Mundo.ObjetosDeTerreno.Ouro;
+import br.cesupa.CC6TA.Mundo.ObjetosDeTerreno.Wumpus;
 
 /**
  *

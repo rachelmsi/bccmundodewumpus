@@ -9,7 +9,7 @@
  * Created on 12/11/2009, 16:02:02
  */
 
-package bccmundodewumpus.br.cesupa.CC6TA.GUI;
+package br.cesupa.CC6TA.GUI;
 
 /**
  *

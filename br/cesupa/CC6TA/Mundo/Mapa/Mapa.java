@@ -1,6 +1,6 @@
-package bccmundodewumpus.br.cesupa.CC6TA.Mundo.Mapa;
+package br.cesupa.CC6TA.Mundo.Mapa;
 
-import bccmundodewumpus.br.cesupa.CC6TA.Mundo.ObjetosDeTerreno.ObjetoDoTerreno;
+import br.cesupa.CC6TA.Mundo.ObjetosDeTerreno.ObjetoDoTerreno;
 
 /**
  *
