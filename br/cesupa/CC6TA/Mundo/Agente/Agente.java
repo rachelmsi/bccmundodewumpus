@@ -9,6 +9,7 @@ import br.cesupa.CC6TA.Mundo.Mapa.PosicaoDoMapa;
  */
 public class Agente {
     PosicaoDoMapa agente;
+    PosicaoDoMapa[][] memoriaDeTrabalho;
     Mapa mapa;
 
     public Agente(Mapa mapa) {

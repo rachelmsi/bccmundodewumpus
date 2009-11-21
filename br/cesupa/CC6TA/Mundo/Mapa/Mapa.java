@@ -25,8 +25,8 @@ public class Mapa {
 
     /**
      * Cria o mapa com linhas e colunas iguais aos parâmetros fornecidos
-     * @param linhas número de linhas do mapa
-     * @param colunas números de colunas do mapa
+     * @param linhas número de linhas do mapa a ser criado
+     * @param colunas números de colunas do mapa a ser criado
      */
     public Mapa(int linhas, int colunas) {
         mapa = new PosicaoDoMapa[linhas][colunas];
@@ -36,17 +36,6 @@ public class Mapa {
                 mapa[posicaoX][posicaoY] = new PosicaoDoMapa(posicaoX, posicaoY);
             }
         }
-    }
-
-    /**
-     * Cria um determinado objeto de terreno em uma posição [posicaoX][posicaoY]
-     * @param posicaoX posicao x de onde vai ser criado o objeto
-     * @param posicaoY posicao y de onde vai ser criado o objeto
-     * @param objetoDoTerreno define o tipo do objeto (new Wumpus(), new Ouro() ou new Buraco())
-     */
-    public void setObjetoDaPosicaoDoMapa(int posicaoX, int posicaoY, ObjetoDoTerreno objetoDoTerreno) {
-        mapa[posicaoX][posicaoY].setObjetoDoTerreno(objetoDoTerreno);
-        mapa[posicaoX][posicaoY].getObjetoDoTerreno().emitirEvento();
     }
 
     // sets e gets

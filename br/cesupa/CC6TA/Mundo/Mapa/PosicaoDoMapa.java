@@ -11,6 +11,12 @@ public class PosicaoDoMapa<T> {
     private boolean esplendor, fedor, brisa;
 
     //construtor
+    /**
+     * Define a posicao x e y da posicao do mapa, seus atributos(brisa, esplendor, fedor)
+     * como false e define o objeto do terreno como null
+     * @param posicaoX define a posicao x da posicao do mapa
+     * @param posicaoY define a posicao y da posicao do mapa
+     */
     public PosicaoDoMapa(int posicaoX, int posicaoY) {
         this.posicaoX = posicaoX;
         this.posicaoY = posicaoY;
@@ -39,7 +45,7 @@ public class PosicaoDoMapa<T> {
         return objetoDoTerreno;
     }
 
-    public void setObjetoDoTerreno(T t) {
+    public void setObjetoDoTerreno(T t, PosicaoDoMapa[][] mapa) {
         this.objetoDoTerreno = (ObjetoDoTerreno) t;
     }
 
