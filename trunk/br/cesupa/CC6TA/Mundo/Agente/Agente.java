@@ -1,7 +1,7 @@
-package bccmundodewumpus.br.cesupa.CC6TA.Mundo.Agente;
+package br.cesupa.CC6TA.Mundo.Agente;
 
-import bccmundodewumpus.br.cesupa.CC6TA.Mundo.Mapa.Mapa;
-import bccmundodewumpus.br.cesupa.CC6TA.Mundo.Mapa.PosicaoDoMapa;
+import br.cesupa.CC6TA.Mundo.Mapa.Mapa;
+import br.cesupa.CC6TA.Mundo.Mapa.PosicaoDoMapa;
 
 /**
  *

@@ -1,4 +1,4 @@
-package bccmundodewumpus.br.cesupa.CC6TA.Mundo.Jogo;
+package br.cesupa.CC6TA.Mundo.Jogo;
 
 /**
  *
