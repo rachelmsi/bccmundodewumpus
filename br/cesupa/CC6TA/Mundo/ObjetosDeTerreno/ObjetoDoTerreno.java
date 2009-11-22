@@ -10,6 +10,7 @@ public class ObjetoDoTerreno implements ObjetoDoTerrenoInterface {
 
     private int posicaoX, posicaoY;
     private PosicaoDoMapa[][] mapa;
+    private TipoObjeto tipoObjeto;
 
     // Contrutores
     public ObjetoDoTerreno() {
@@ -47,5 +48,13 @@ public class ObjetoDoTerreno implements ObjetoDoTerrenoInterface {
 
     public void setPosicaoY(int posicaoY) {
         this.posicaoY = posicaoY;
+    }
+
+    public TipoObjeto getTipoObjeto() {
+        return this.tipoObjeto;
+    }
+
+    public void setTipoObjeto(TipoObjeto tipo) {
+        this.tipoObjeto = tipo;
     }
 }
