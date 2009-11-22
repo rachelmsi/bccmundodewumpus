@@ -1,7 +1,5 @@
 package br.cesupa.CC6TA.Mundo.Mapa;
 
-import br.cesupa.CC6TA.Mundo.ObjetosDeTerreno.ObjetoDoTerreno;
-
 /**
  *
  * @author Pedro
