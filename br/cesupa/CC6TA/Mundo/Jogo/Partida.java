@@ -1,5 +1,7 @@
 package br.cesupa.CC6TA.Mundo.Jogo;
 
+import br.cesupa.CC6TA.Mundo.Jogo.ExceptionsDoJogo.ObjetoJaCriadoException;
+import br.cesupa.CC6TA.Mundo.Jogo.ExceptionsDoJogo.PosicaoReservadaParaAgenteException;
 import br.cesupa.CC6TA.Mundo.Mapa.Mapa;
 import br.cesupa.CC6TA.Mundo.ObjetosDeTerreno.Objetos.Buraco;
 import br.cesupa.CC6TA.Mundo.ObjetosDeTerreno.ObjetoDoTerreno;
@@ -13,6 +15,7 @@ import br.cesupa.CC6TA.Mundo.ObjetosDeTerreno.Objetos.Wumpus;
 public class Partida {
 
     private Mapa mapa;
+    private int contadorWumpus, contadorBuraco, contadorOuro; // TODO: implementar funcionalidade de controlar número de objetos criados
 
     /**
      * Instancia um novo mapa, o construtor do mapa sem parâmetros
@@ -20,6 +23,7 @@ public class Partida {
      */
     public Partida() {
         mapa = new Mapa();
+        contadorWumpus = contadorBuraco = contadorOuro = 0;
     }
 
     /**
@@ -36,9 +40,9 @@ public class Partida {
      * @param posicaoX posicao x do wumpus
      * @param posicaoY posicao y do wumpus
      */
-
-    public void criaWumpus(int posicaoX, int posicaoY) {
-        setObjetoDaPosicaoDoMapa(posicaoX, posicaoY, new Wumpus());
+    public void criaWumpus(int posicaoX, int posicaoY) throws PosicaoReservadaParaAgenteException, ObjetoJaCriadoException {
+        setObjetoDaPosicaoDoMapa(posicaoX, posicaoY, new Wumpus(posicaoX, posicaoY));
+        contadorWumpus++;
     }
 
     /**
@@ -46,8 +50,9 @@ public class Partida {
      * @param posicaoX posicao x do ouro
      * @param posicaoY posicao y do ouro
      */
-    public void criaOuro(int posicaoX, int posicaoY) {
-        setObjetoDaPosicaoDoMapa(posicaoX, posicaoY, new Ouro());
+    public void criaOuro(int posicaoX, int posicaoY) throws PosicaoReservadaParaAgenteException, ObjetoJaCriadoException {
+        setObjetoDaPosicaoDoMapa(posicaoX, posicaoY, new Ouro(posicaoX, posicaoY));
+        contadorOuro++;
     }
 
     /**
@@ -55,8 +60,9 @@ public class Partida {
      * @param posicaoX posicao x do buraco
      * @param posicaoY posicao y do buraco
      */
-    public void criaBuraco(int posicaoX, int posicaoY) {
-        setObjetoDaPosicaoDoMapa(posicaoX, posicaoY, new Buraco());
+    public void criaBuraco(int posicaoX, int posicaoY) throws PosicaoReservadaParaAgenteException, ObjetoJaCriadoException {
+        setObjetoDaPosicaoDoMapa(posicaoX, posicaoY, new Buraco(posicaoX, posicaoY));
+        contadorBuraco++;
     }
 
     /**
@@ -66,9 +72,21 @@ public class Partida {
      * @param posicaoY posicao y de onde vai ser criado o objeto
      * @param objetoDoTerreno define o tipo do objeto (new Wumpus(), new Ouro() ou new Buraco())
      */
-    public void setObjetoDaPosicaoDoMapa(int posicaoX, int posicaoY, ObjetoDoTerreno objetoDoTerreno) {
-        this.mapa.getMapa()[posicaoX][posicaoY].setObjetoDoTerreno(objetoDoTerreno, this.mapa.getMapa());
-        //mapa[posicaoX][posicaoY].getObjetoDoTerreno().emitirEvento();
+    public void setObjetoDaPosicaoDoMapa(int posicaoX, int posicaoY, ObjetoDoTerreno objetoDoTerreno) throws PosicaoReservadaParaAgenteException, ObjetoJaCriadoException {
+
+        if (posicaoX == 0 && posicaoY == 0) {
+            throw new PosicaoReservadaParaAgenteException();
+        } else if (this.getObjetoDaPosicaoDoMapa(posicaoX, posicaoY) == null) {
+            this.mapa.getMapa()[posicaoX][posicaoY].setObjetoDoTerreno(objetoDoTerreno);
+            this.mapa.getMapa()[posicaoX][posicaoY].getObjetoDoTerreno().setMapa(this.mapa);
+            this.mapa.getMapa()[posicaoX][posicaoY].getObjetoDoTerreno().emitirEvento();
+        } else {
+            throw new ObjetoJaCriadoException();
+        }
+    }
+
+    public ObjetoDoTerreno getObjetoDaPosicaoDoMapa(int posicaoX, int posicaoY) {
+        return this.mapa.getMapa()[posicaoX][posicaoY].getObjetoDoTerreno();
     }
 
     /**
