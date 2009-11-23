@@ -8,7 +8,11 @@ import br.cesupa.CC6TA.Mundo.ObjetosDeTerreno.ObjetoDoTerreno;
 public class PosicaoDoMapa<T> {
     private int posicaoX, posicaoY;
     private ObjetoDoTerreno objetoDoTerreno;
-    private boolean esplendor, fedor, brisa;
+    private boolean resplendor, fedor, brisa;
+    private boolean visitadoPeloAgente;
+    private boolean casaSegura;
+    private boolean wumpus;
+    private boolean buraco;
 
     //construtor
     /**
@@ -20,11 +24,13 @@ public class PosicaoDoMapa<T> {
     public PosicaoDoMapa(int posicaoX, int posicaoY) {
         this.posicaoX = posicaoX;
         this.posicaoY = posicaoY;
-        this.esplendor = this.fedor = this.brisa = false;
+        this.resplendor = this.fedor = this.brisa = false;
         this.objetoDoTerreno = null;
+        this.visitadoPeloAgente = false;
+        this.casaSegura = false;
     }
 
-    // sets e gets
+    // ######### sets e gets #########
     public int getPosicaoX() {
         return posicaoX;
     }
@@ -45,16 +51,16 @@ public class PosicaoDoMapa<T> {
         return objetoDoTerreno;
     }
 
-    public void setObjetoDoTerreno(T t, PosicaoDoMapa[][] mapa) {
+    public void setObjetoDoTerreno(T t) {
         this.objetoDoTerreno = (ObjetoDoTerreno) t;
     }
 
-    public boolean isEsplendor() {
-        return esplendor;
+    public boolean isResplendor() {
+        return resplendor;
     }
 
-    public void setEsplendor(boolean esplendor) {
-        this.esplendor = esplendor;
+    public void setResplendor(boolean resplendor) {
+        this.resplendor = resplendor;
     }
 
     public boolean isFedor() {
@@ -71,5 +77,37 @@ public class PosicaoDoMapa<T> {
 
     public void setBrisa(boolean brisa) {
         this.brisa = brisa;
+    }
+
+    public boolean isVisitadoPeloAgente() {
+        return visitadoPeloAgente;
+    }
+
+    public void setVisitadoPeloAgente(boolean visitadoPeloAgente) {
+        this.visitadoPeloAgente = visitadoPeloAgente;
+    }
+
+    public boolean isCasaSegura() {
+        return casaSegura;
+    }
+
+    public void setCasaSegura(boolean casaSegura) {
+        this.casaSegura = casaSegura;
+    }
+
+    public boolean isWumpus() {
+        return wumpus;
+    }
+
+    public void setWumpus(boolean wumpus) {
+        this.wumpus = wumpus;
+    }
+
+    public boolean isBuraco() {
+        return buraco;
+    }
+
+    public void setBuraco(boolean buraco) {
+        this.buraco = buraco;
     }
 }

@@ -1,6 +1,6 @@
 package br.cesupa.CC6TA.Mundo.ObjetosDeTerreno;
 
-import br.cesupa.CC6TA.Mundo.Mapa.PosicaoDoMapa;
+import br.cesupa.CC6TA.Mundo.Mapa.Mapa;
 
 /**
  *
@@ -9,7 +9,7 @@ import br.cesupa.CC6TA.Mundo.Mapa.PosicaoDoMapa;
 public class ObjetoDoTerreno implements ObjetoDoTerrenoInterface {
 
     private int posicaoX, posicaoY;
-    private PosicaoDoMapa[][] mapa;
+    private Mapa mapa;
     private TipoObjeto tipoObjeto;
 
     // Contrutores
@@ -23,11 +23,6 @@ public class ObjetoDoTerreno implements ObjetoDoTerrenoInterface {
         this.posicaoY = posicaoY;
     }
     // Fim Construtores
-
-//    public void setAtributoDoEvento() {
-//        posicaoX
-//        posicaoY
-//    }
 
     public void emitirEvento() {
         //TODO: Implementar as regras do emitirEvento
@@ -56,5 +51,13 @@ public class ObjetoDoTerreno implements ObjetoDoTerrenoInterface {
 
     public void setTipoObjeto(TipoObjeto tipo) {
         this.tipoObjeto = tipo;
+    }
+
+    public Mapa getMapa() {
+        return mapa;
+    }
+
+    public void setMapa(Mapa mapa) {
+        this.mapa = mapa;
     }
 }

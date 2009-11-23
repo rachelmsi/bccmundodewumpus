@@ -6,16 +6,20 @@ package br.cesupa.CC6TA.Mundo.Mapa;
  */
 public class Mapa {
     private PosicaoDoMapa[][] mapa;
+    private int linhas;
+    private int colunas;
 
     // construtores
     /**
      * Cria o mapa por padrão com 4 linhas e 4 colunas
      */
     public Mapa() {
-        mapa = new PosicaoDoMapa[4][4];
+        this.linhas = 4;
+        this.colunas = 4;
+        mapa = new PosicaoDoMapa[linhas][colunas];
 
-        for(int posicaoX = 0; posicaoX < 4; posicaoX++) {
-            for(int posicaoY = 0; posicaoY < 4; posicaoY++) {
+        for(int posicaoX = 0; posicaoX < linhas; posicaoX++) {
+            for(int posicaoY = 0; posicaoY < colunas; posicaoY++) {
                 mapa[posicaoX][posicaoY] = new PosicaoDoMapa(posicaoX, posicaoY);
             }
         }
@@ -27,6 +31,8 @@ public class Mapa {
      * @param colunas números de colunas do mapa a ser criado
      */
     public Mapa(int linhas, int colunas) {
+        this.linhas = linhas;
+        this.colunas = colunas;
         mapa = new PosicaoDoMapa[linhas][colunas];
 
         for(int posicaoX = 0; posicaoX < linhas; posicaoX++) {
@@ -43,5 +49,13 @@ public class Mapa {
 
     public void setMapa(PosicaoDoMapa[][] mapa) {
         this.mapa = mapa;
+    }
+
+    public int getLinhas() {
+        return this.linhas;
+    }
+
+    public int getColunas() {
+        return this.colunas;
     }
 }
