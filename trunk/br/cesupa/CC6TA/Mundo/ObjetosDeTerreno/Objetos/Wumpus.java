@@ -35,9 +35,6 @@ public class Wumpus extends ObjetoDoTerreno {
         if (!(this.getPosicaoY() - 1 < 0)) {
             this.getMapa().getMapa()[this.getPosicaoX()][this.getPosicaoY() - 1].setFedor(true);
         }
-        
-        
-        
         System.out.println("Sou o wumpus e realizei meu evento");
 
     }

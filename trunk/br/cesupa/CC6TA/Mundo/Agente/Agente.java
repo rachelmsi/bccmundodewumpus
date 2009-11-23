@@ -29,8 +29,13 @@ public class Agente {
     }
 
     // Métodos do agente
-    public void IniciarAventura() {
-        iniciarPercepcao();
+    public void iniciarAventura() {
+        do {
+            iniciarPercepcao();
+            if (morreu == false) {
+                moverAgente();
+            }
+        } while (morreu == false);
     }
 //    private boolean visitadoPeloAgente;
 //    private boolean casaSegura;
@@ -38,21 +43,40 @@ public class Agente {
 //    private boolean buraco;
 
     public void iniciarPercepcao() {
-        if (isSeguro(agente.getPosicaoX(), agente.getPosicaoY())) {
+        if (!agente.isVisitadoPeloAgente()) {
+            if (aindaEstaVivo(agente.getPosicaoX(), agente.getPosicaoY())) {
 
+                agente.setVisitadoPeloAgente(true);
+                agente.setCasaSegura(true);
 
+                if (nenhumaPercepcaoDeFedorOuBrisa(agente.getPosicaoX(), agente.getPosicaoY())) {
+                    definirCasasSegurasAoRedor(agente.getPosicaoX(), agente.getPosicaoY());
+                    historico.appendHistorico("O agente não detectou nada na posicao: " + agente.getPosicaoX() + " x " + agente.getPosicaoY());
 
-            if (possuiBrisa(agente.getPosicaoX(), agente.getPosicaoY())) {
+                } else {
+                    if (possuiBrisa(agente.getPosicaoX(), agente.getPosicaoY())) {
+                        definirPerigoDeBuracoAoRedor(agente.getPosicaoX(), agente.getPosicaoY());
+                        historico.appendHistorico("O agente detectou brisa na posicao: " + agente.getPosicaoX() + " x " + agente.getPosicaoY());
+                    }
+
+                    if (possuiFedor(agente.getPosicaoX(), agente.getPosicaoY())) {
+                        definirPerigoDeWumpusAoRedor(agente.getPosicaoX(), agente.getPosicaoY());
+                        historico.appendHistorico("O agente detectou fedor na posicao: " + agente.getPosicaoX() + " x " + agente.getPosicaoY());
+                    }
+                }
+            } else {
+                morreu = true;
+                pontuacao -= 1000;
+                historico.appendHistorico("O agente foi morto, -1000 de pontuação");
             }
-
-            if (possuiFedor(agente.getPosicaoX(), agente.getPosicaoY())) {
-            }
-        } else {
-            historico.appendHistorico("O agente foi morto");
         }
     }
 
-    public boolean isSeguro(int posicaoX, int posicaoY) {
+    public void moverAgente() {
+        
+    }
+
+    public boolean aindaEstaVivo(int posicaoX, int posicaoY) {
         if (possuiWumpus(posicaoX, posicaoY) || possuiBuraco(posicaoX, posicaoY)) {
             return false;
         } else {
@@ -61,6 +85,9 @@ public class Agente {
     }
 
     public boolean possuiWumpus(int posicaoX, int posicaoY) {
+        if (mapa.getMapa()[posicaoX][posicaoY].getObjetoDoTerreno() == null) {
+            return false;
+        }
         if (mapa.getMapa()[posicaoX][posicaoY].getObjetoDoTerreno().getTipoObjeto() == TipoObjeto.WUMPUS) {
             return true;
         } else {
@@ -69,6 +96,10 @@ public class Agente {
     }
 
     public boolean possuiBuraco(int posicaoX, int posicaoY) {
+
+        if (mapa.getMapa()[posicaoX][posicaoY].getObjetoDoTerreno() == null) {
+            return false;
+        }
         if (mapa.getMapa()[posicaoX][posicaoY].getObjetoDoTerreno().getTipoObjeto() == TipoObjeto.BURACO) {
             return true;
         } else {
@@ -91,4 +122,85 @@ public class Agente {
     public boolean possuiFedor(int posicaoX, int posicaoY) {
         return mapa.getMapa()[posicaoX][posicaoY].isFedor();
     }
+
+    public boolean nenhumaPercepcaoDeFedorOuBrisa(int posicaoX, int posicaoY) {
+        if (possuiBrisa(posicaoX, posicaoY) || possuiFedor(posicaoX, posicaoY)) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public void definirPerigoDeBuracoAoRedor(int posicaoX, int posicaoY) {
+
+        int linhas = mapa.getLinhas() - 1;
+        int colunas = mapa.getColunas() - 1;
+
+        if (!(posicaoX + 1 > linhas)) {
+            mapa.getMapa()[posicaoX + 1][posicaoY].setBuraco(true);
+        }
+
+        if (!(posicaoX - 1 < 0)) {
+            mapa.getMapa()[posicaoX - 1][posicaoY].setBuraco(true);
+        }
+
+
+        if (!(posicaoY + 1 > colunas)) {
+            mapa.getMapa()[posicaoX][posicaoY + 1].setBuraco(true);
+        }
+
+        if (!(posicaoY - 1 < 0)) {
+            mapa.getMapa()[posicaoX][posicaoY - 1].setBuraco(true);
+        }
+    }
+
+    public void definirPerigoDeWumpusAoRedor(int posicaoX, int posicaoY) {
+        int linhas = mapa.getLinhas() - 1;
+        int colunas = mapa.getColunas() - 1;
+
+        if (!(posicaoX + 1 > linhas)) {
+            mapa.getMapa()[posicaoX + 1][posicaoY].setWumpus(true);
+        }
+
+        if (!(posicaoX - 1 < 0)) {
+            mapa.getMapa()[posicaoX - 1][posicaoY].setWumpus(true);
+        }
+
+
+        if (!(posicaoY + 1 > colunas)) {
+            mapa.getMapa()[posicaoX][posicaoY + 1].setWumpus(true);
+        }
+
+        if (!(posicaoY - 1 < 0)) {
+            mapa.getMapa()[posicaoX][posicaoY - 1].setWumpus(true);
+        }
+    }
+
+    public void definirCasasSegurasAoRedor(int posicaoX, int posicaoY) {
+        int linhas = mapa.getLinhas() - 1;
+        int colunas = mapa.getColunas() - 1;
+
+        if (!(posicaoX + 1 > linhas)) {
+            mapa.getMapa()[posicaoX + 1][posicaoY].setCasaSegura(true);
+        }
+
+        if (!(posicaoX - 1 < 0)) {
+            mapa.getMapa()[posicaoX - 1][posicaoY].setCasaSegura(true);
+        }
+
+
+        if (!(posicaoY + 1 > colunas)) {
+            mapa.getMapa()[posicaoX][posicaoY + 1].setCasaSegura(true);
+        }
+
+        if (!(posicaoY - 1 < 0)) {
+            mapa.getMapa()[posicaoX][posicaoY - 1].setCasaSegura(true);
+        }
+    }
+
+    public HistoricoDoAgente getHistorico() {
+        return this.historico;
+    }
 }
+
+
