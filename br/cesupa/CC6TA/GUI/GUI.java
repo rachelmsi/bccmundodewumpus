@@ -19,6 +19,46 @@ public class GUI extends javax.swing.JFrame {
         jogo[0][0]="Personagem";
     }
     
+    public void cima(){
+        int[] posicao = new int[2];
+        posicao=agente.encontra(jogo, "Personagem");
+        if(posicao[1]+1>=0&&posicao[1]+1<=3){
+        mudaCasas(posicao[0],posicao[1]+1);
+        }else{
+            JOptionPane.showMessageDialog(null, "Ação Impossivel!!");
+        }
+    }
+    
+    public void baixo(){
+        int[] posicao = new int[2];
+        posicao=agente.encontra(jogo, "Personagem");
+        if(posicao[1]-1>=0&&posicao[1]-1<=3){
+        mudaCasas(posicao[0],posicao[1]-1);
+        }else{
+            JOptionPane.showMessageDialog(null, "Ação Impossivel!!");
+        }
+    }
+    
+    public void esquerda(){
+        int[] posicao = new int[2];
+        posicao=agente.encontra(jogo, "Personagem");
+        if(posicao[0]-1>=0&&posicao[0]-1<=3){
+        mudaCasas(posicao[0]-1,posicao[1]);
+        }else{
+            JOptionPane.showMessageDialog(null, "Ação Impossivel!!");
+        }
+    }
+    
+    public void direita(){
+        int[] posicao = new int[2];
+        posicao=agente.encontra(jogo, "Personagem");
+        if(posicao[0]+1>=0&&posicao[0]+1<=3){
+        mudaCasas(posicao[0]+1,posicao[1]);
+        }else{
+            JOptionPane.showMessageDialog(null, "Ação Impossivel!!");
+        }
+    }
+    
     Casas casas = new Casas();
     Agente agente = new Agente();
     int cont=0;
@@ -225,7 +265,7 @@ public class GUI extends javax.swing.JFrame {
         jBc = new javax.swing.JButton();
         jBe = new javax.swing.JButton();
         jBd = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jBb = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 102, 255));
@@ -646,13 +686,13 @@ public class GUI extends javax.swing.JFrame {
         });
         jPseta.add(jBd, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, -1, -1));
 
-        jButton2.setText("B");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jBb.setText("B");
+        jBb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jBbActionPerformed(evt);
             }
         });
-        jPseta.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
+        jPseta.add(jBb, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -878,44 +918,20 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jBcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBcActionPerformed
-        int[] posicao = new int[2];
-        posicao=agente.encontra(jogo, "Personagem");
-        if(posicao[1]+1>=0&&posicao[1]+1<=3){
-        mudaCasas(posicao[0],posicao[1]+1);
-        }else{
-            JOptionPane.showMessageDialog(null, "Ação Impossivel!!");
-        }
+        cima();
 }//GEN-LAST:event_jBcActionPerformed
 
     private void jBeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBeActionPerformed
-        int[] posicao = new int[2];
-        posicao=agente.encontra(jogo, "Personagem");
-        if(posicao[0]-1>=0&&posicao[0]-1<=3){
-        mudaCasas(posicao[0]-1,posicao[1]);
-        }else{
-            JOptionPane.showMessageDialog(null, "Ação Impossivel!!");
-        }
+        esquerda();
     }//GEN-LAST:event_jBeActionPerformed
 
         private void jBdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBdActionPerformed
-        int[] posicao = new int[2];
-        posicao=agente.encontra(jogo, "Personagem");
-        if(posicao[0]+1>=0&&posicao[0]+1<=3){
-        mudaCasas(posicao[0]+1,posicao[1]);
-        }else{
-            JOptionPane.showMessageDialog(null, "Ação Impossivel!!");
-        }
+        direita();
         }//GEN-LAST:event_jBdActionPerformed
 
-        private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        int[] posicao = new int[2];
-        posicao=agente.encontra(jogo, "Personagem");
-        if(posicao[1]-1>=0&&posicao[1]-1<=3){
-        mudaCasas(posicao[0],posicao[1]-1);
-        }else{
-            JOptionPane.showMessageDialog(null, "Ação Impossivel!!");
-        }
-        }//GEN-LAST:event_jButton2ActionPerformed
+        private void jBbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBbActionPerformed
+        baixo();
+}//GEN-LAST:event_jBbActionPerformed
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -926,11 +942,11 @@ public class GUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBb;
     private javax.swing.JButton jBc;
     private javax.swing.JButton jBd;
     private javax.swing.JButton jBe;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JComboBox jCB01;
     private javax.swing.JComboBox jCB02;
     private javax.swing.JComboBox jCB03;
