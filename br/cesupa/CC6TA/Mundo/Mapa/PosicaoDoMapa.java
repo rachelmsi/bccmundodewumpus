@@ -5,7 +5,8 @@ import br.cesupa.CC6TA.Mundo.ObjetosDeTerreno.ObjetoDoTerreno;
 /**
  * @author Pedro
  */
-public class PosicaoDoMapa<T> {
+public class PosicaoDoMapa {
+
     private int posicaoX, posicaoY;
     private ObjetoDoTerreno objetoDoTerreno;
     private boolean resplendor, fedor, brisa;
@@ -28,9 +29,12 @@ public class PosicaoDoMapa<T> {
         this.objetoDoTerreno = null;
         this.visitadoPeloAgente = false;
         this.casaSegura = false;
+        this.wumpus = false;
+        this.buraco = false;
     }
 
     // ######### sets e gets #########
+    // os sets e gets de buraco, wumpus, casaSegura e visitadoPeloAgente são diferentes do normal
     public int getPosicaoX() {
         return posicaoX;
     }
@@ -51,8 +55,8 @@ public class PosicaoDoMapa<T> {
         return objetoDoTerreno;
     }
 
-    public void setObjetoDoTerreno(T t) {
-        this.objetoDoTerreno = (ObjetoDoTerreno) t;
+    public void setObjetoDoTerreno(ObjetoDoTerreno objetoDoTerreno) {
+        this.objetoDoTerreno = objetoDoTerreno;
     }
 
     public boolean isResplendor() {
@@ -84,7 +88,14 @@ public class PosicaoDoMapa<T> {
     }
 
     public void setVisitadoPeloAgente(boolean visitadoPeloAgente) {
-        this.visitadoPeloAgente = visitadoPeloAgente;
+        if (visitadoPeloAgente == true) {
+            this.visitadoPeloAgente = visitadoPeloAgente;
+            this.casaSegura = true;
+            this.wumpus = false;
+            this.buraco = false;
+        } else {
+            this.visitadoPeloAgente = visitadoPeloAgente;
+        }
     }
 
     public boolean isCasaSegura() {
@@ -92,7 +103,14 @@ public class PosicaoDoMapa<T> {
     }
 
     public void setCasaSegura(boolean casaSegura) {
-        this.casaSegura = casaSegura;
+        if (casaSegura == true) {
+            this.casaSegura = casaSegura;
+            this.wumpus = false;
+            this.buraco = false;
+        } else {
+            this.casaSegura = casaSegura;
+        }
+
     }
 
     public boolean isWumpus() {
@@ -100,7 +118,12 @@ public class PosicaoDoMapa<T> {
     }
 
     public void setWumpus(boolean wumpus) {
-        this.wumpus = wumpus;
+        if (wumpus == true) {
+            this.wumpus = wumpus;
+            this.casaSegura = false;
+        } else {
+            this.wumpus = wumpus;
+        }
     }
 
     public boolean isBuraco() {
@@ -108,6 +131,12 @@ public class PosicaoDoMapa<T> {
     }
 
     public void setBuraco(boolean buraco) {
-        this.buraco = buraco;
+        if (buraco == true) {
+            this.buraco = buraco;
+            this.casaSegura = false;
+        } else {
+            this.buraco = buraco;
+        }
+
     }
 }
