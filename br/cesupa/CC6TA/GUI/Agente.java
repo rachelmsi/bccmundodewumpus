@@ -1,7 +1,5 @@
 package br.cesupa.CC6TA.GUI;
 
-import javax.swing.JOptionPane;
-
 public class Agente {
     public int[] encontra(String[][] matriz,String objeto){
        int[] posicao = new int[2];
