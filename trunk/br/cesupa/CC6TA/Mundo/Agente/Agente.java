@@ -15,6 +15,10 @@ public class Agente {
     private int pontuacao;
     // variaveis boolean de estado do agente
     private boolean pegouOuro, voltou, morreu;
+    private boolean cima = true;
+    private boolean baixo = false;
+    private boolean direita = true;
+    private boolean esquerda = false;
 
     public Agente(Mapa mapa) {
         this.mapa = mapa;
@@ -30,12 +34,12 @@ public class Agente {
 
     // Métodos do agente
     public void iniciarAventura() {
-        do {
+//        do {
             iniciarPercepcao();
             if (morreu == false) {
                 moverAgente();
             }
-        } while (morreu == false);
+//        } while (morreu == false);
     }
 //    private boolean visitadoPeloAgente;
 //    private boolean casaSegura;
@@ -73,7 +77,42 @@ public class Agente {
     }
 
     public void moverAgente() {
-        
+    }
+
+    public int possiveisMovimentos() {
+        int movimentos = 0;
+
+        if (cima) {
+            movimentos++;
+        }
+        if (baixo) {
+            movimentos++;
+        }
+        if (direita) {
+            movimentos++;
+        }
+        if (esquerda) {
+            movimentos++;
+        }
+        return movimentos;
+    }
+
+    public String sorteiaPosicaoParaAndar(int possiveisMovimentos) {
+        int random = (int) (Math.random() * possiveisMovimentos);
+
+        if (random == 0) {
+//            return encontrarTrue(0);
+        }
+        if (random == 1) {
+//            return encontrarTrue(1);
+        }
+        if (random == 2) {
+//            return encontrarTrue(2);
+        }
+        if (random == 3) {
+//            return encontrarTrue(3);
+        }
+        return "";
     }
 
     public boolean aindaEstaVivo(int posicaoX, int posicaoY) {
