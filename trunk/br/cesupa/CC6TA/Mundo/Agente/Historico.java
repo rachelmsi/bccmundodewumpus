@@ -1,9 +1,9 @@
 package br.cesupa.CC6TA.Mundo.Agente;
 
-public class HistoricoDoAgente {
+public class Historico {
     private String historico;
 
-    public HistoricoDoAgente() {
+    public Historico() {
         this.historico = "";
     }
 
