@@ -12,8 +12,8 @@ public class PosicaoDoMapa {
     private boolean resplendor, fedor, brisa;
     private boolean visitadoPeloAgente;
     private boolean casaSegura;
-    private boolean wumpus;
-    private boolean buraco;
+    private boolean possibilidadeDeWumpus;
+    private boolean possibilidadeDeBuraco;
 
     //construtor
     /**
@@ -29,8 +29,8 @@ public class PosicaoDoMapa {
         this.objetoDoTerreno = null;
         this.visitadoPeloAgente = false;
         this.casaSegura = false;
-        this.wumpus = false;
-        this.buraco = false;
+        this.possibilidadeDeWumpus = false;
+        this.possibilidadeDeBuraco = false;
     }
 
     // ######### sets e gets #########
@@ -91,8 +91,8 @@ public class PosicaoDoMapa {
         if (visitadoPeloAgente == true) {
             this.visitadoPeloAgente = visitadoPeloAgente;
             this.casaSegura = true;
-            this.wumpus = false;
-            this.buraco = false;
+            this.possibilidadeDeWumpus = false;
+            this.possibilidadeDeBuraco = false;
         } else {
             this.visitadoPeloAgente = visitadoPeloAgente;
         }
@@ -105,38 +105,27 @@ public class PosicaoDoMapa {
     public void setCasaSegura(boolean casaSegura) {
         if (casaSegura == true) {
             this.casaSegura = casaSegura;
-            this.wumpus = false;
-            this.buraco = false;
+            this.possibilidadeDeWumpus = false;
+            this.possibilidadeDeBuraco = false;
         } else {
             this.casaSegura = casaSegura;
         }
 
     }
 
-    public boolean isWumpus() {
-        return wumpus;
+    public boolean isPossibilidadeDeWumpus() {
+        return possibilidadeDeWumpus;
     }
 
-    public void setWumpus(boolean wumpus) {
-        if (wumpus == true) {
-            this.wumpus = wumpus;
-            this.casaSegura = false;
-        } else {
-            this.wumpus = wumpus;
-        }
+    public void setPossibilidadeDeWumpus(boolean possibilidadeDeWumpus) {
+        this.possibilidadeDeWumpus = possibilidadeDeWumpus;
     }
 
-    public boolean isBuraco() {
-        return buraco;
+    public boolean isPossibilidadeDeBuraco() {
+        return possibilidadeDeBuraco;
     }
 
-    public void setBuraco(boolean buraco) {
-        if (buraco == true) {
-            this.buraco = buraco;
-            this.casaSegura = false;
-        } else {
-            this.buraco = buraco;
-        }
-
+    public void setPossibilidadeDeBuraco(boolean possibilidadeDeBuraco) {
+        this.possibilidadeDeBuraco = possibilidadeDeBuraco;
     }
 }

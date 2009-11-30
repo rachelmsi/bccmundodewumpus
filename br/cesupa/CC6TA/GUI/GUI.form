@@ -74,42 +74,42 @@
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="jP03" pref="100" max="32767" attributes="1"/>
+                      <Component id="jP03" pref="106" max="32767" attributes="1"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jP02" pref="100" max="32767" attributes="1"/>
+                      <Component id="jP02" pref="106" max="32767" attributes="1"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jP01" pref="100" max="32767" attributes="1"/>
+                      <Component id="jP01" pref="106" max="32767" attributes="1"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jP00" pref="100" max="32767" attributes="1"/>
+                      <Component id="jP00" pref="106" max="32767" attributes="1"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="jP13" pref="100" max="32767" attributes="1"/>
+                      <Component id="jP13" pref="106" max="32767" attributes="1"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jP12" pref="100" max="32767" attributes="1"/>
+                      <Component id="jP12" pref="106" max="32767" attributes="1"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jP11" pref="100" max="32767" attributes="1"/>
+                      <Component id="jP11" pref="106" max="32767" attributes="1"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jP10" pref="100" max="32767" attributes="1"/>
+                      <Component id="jP10" pref="106" max="32767" attributes="1"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jP33" pref="100" max="32767" attributes="1"/>
-                          <Component id="jP23" alignment="1" pref="100" max="32767" attributes="1"/>
+                          <Component id="jP33" pref="106" max="32767" attributes="1"/>
+                          <Component id="jP23" alignment="1" pref="106" max="32767" attributes="1"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="jP32" pref="100" max="32767" attributes="1"/>
-                          <Component id="jP22" alignment="0" pref="100" max="32767" attributes="1"/>
+                          <Component id="jP32" pref="106" max="32767" attributes="1"/>
+                          <Component id="jP22" alignment="0" pref="106" max="32767" attributes="1"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jP31" pref="100" max="32767" attributes="1"/>
-                          <Component id="jP21" alignment="0" pref="100" max="32767" attributes="1"/>
+                          <Component id="jP31" pref="106" max="32767" attributes="1"/>
+                          <Component id="jP21" alignment="0" pref="106" max="32767" attributes="1"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="jP30" pref="100" max="32767" attributes="1"/>
-                          <Component id="jP20" alignment="0" pref="100" max="32767" attributes="1"/>
+                          <Component id="jP30" pref="106" max="32767" attributes="1"/>
+                          <Component id="jP20" alignment="0" pref="106" max="32767" attributes="1"/>
                       </Group>
                   </Group>
               </Group>
@@ -402,9 +402,6 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="jL00">
           <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Roberto Franco\Documents\NetBeansProjects\wumpus\src\br\cesupa\CC6TA\GUI\imagens\Personagem.jpg"/>
-            </Property>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[70, 70]"/>
             </Property>
