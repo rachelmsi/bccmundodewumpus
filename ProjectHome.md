@@ -1,0 +1,1 @@
+Trabalho de IA da turma de BCC 2007. Mundo de Wumpus
